@@ -1102,8 +1102,8 @@ func (c *ServerConn) NoOp() error {
 }
 
 // Quote send arbitrary ftp command
-func (c *ServerConn) Quote(command string, args ...interface{}) (msg string, err error) {
-	_, msg, err = c.cmd(StatusCommandOK, command, args...)
+func (c *ServerConn) Quote(format string, args ...interface{}) (msg string, err error) {
+	_, msg, err = c.cmd(StatusRequestedFileActionOK, format, args...)
 	return
 }
 
