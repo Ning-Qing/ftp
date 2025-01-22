@@ -1101,6 +1101,12 @@ func (c *ServerConn) NoOp() error {
 	return err
 }
 
+// Quote send arbitrary ftp command
+func (c *ServerConn) Quote(command string, args ...interface{}) (msg string, err error) {
+	_, msg, err = c.cmd(StatusCommandOK, command, args...)
+	return
+}
+
 // Logout issues a REIN FTP command to logout the current user.
 func (c *ServerConn) Logout() error {
 	_, _, err := c.cmd(StatusReady, "REIN")
