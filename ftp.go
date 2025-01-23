@@ -1103,7 +1103,7 @@ func (c *ServerConn) NoOp() error {
 
 // Quote send arbitrary ftp command
 func (c *ServerConn) Quote(format string, args ...interface{}) (msg string, err error) {
-	_, msg, err = c.cmd(StatusRequestedFileActionOK, format, args...)
+	_, msg, err = c.cmd(2, format, args...)
 	return
 }
 
